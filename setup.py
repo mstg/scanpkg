@@ -3,7 +3,7 @@
 # @Author: Mustafa
 # @Date:   2015-07-10 00:06:09
 # @Last Modified by:   Mustafa
-# @Last Modified time: 2015-07-30 00:32:54
+# @Last Modified time: 2015-07-30 00:50:20
 
 import os
 from setuptools import setup
@@ -16,7 +16,7 @@ with open('scanpkg/__version__.py', 'r') as f:
 
 setup(
 	name = "scanpkg",
-	version = "0.0.1",
+	version = __version__,
 	author = "mstg",
 	author_email = "mustiigezen@gmail.com",
 	description = ("Windows alternative for dpkg-scanpackages (mainly created for cydia repos, but should work with other Debian repos)"),
