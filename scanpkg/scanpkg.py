@@ -3,7 +3,7 @@
 # @Author: Mustafa
 # @Date:   2015-07-09 23:52:55
 # @Last Modified by:   Mustafa
-# @Last Modified time: 2015-07-30 00:25:12
+# @Last Modified time: 2015-07-30 00:47:32
 
 # Exceptions
 class scanpkgControlException(Exception):
@@ -109,9 +109,9 @@ class scanpkg:
 
 		shutil.rmtree(TEMP_DIR, ignore_errors=True)
 		with open("./Packages", "w+") as f:
-			f.write(PACKAGE_STRING[:-1])
+			f.write(PACKAGE_STRING)
 
-		patoolib.create_archive("./Packages.bz2", ["./Packages"], verbosity=VERBOSITY)
+		subprocess.call(["bzip2", "-zk", "./Packages"])
 
 
 

@@ -9,4 +9,5 @@ Dependencies
 ```
 click
 patool
+Git command line tools
 ```
