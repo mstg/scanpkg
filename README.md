@@ -8,4 +8,5 @@ Dependencies
 
 ```
 click
+patool
 ```
