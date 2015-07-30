@@ -3,7 +3,7 @@
 # @Author: Mustafa
 # @Date:   2015-07-09 23:52:55
 # @Last Modified by:   Mustafa
-# @Last Modified time: 2015-07-30 00:47:32
+# @Last Modified time: 2015-07-30 02:17:53
 
 # Exceptions
 class scanpkgControlException(Exception):
@@ -46,8 +46,9 @@ class scanpkg:
 			SHA256 = "SHA256: {0}\n".format(SHA256)
 
 			Filename = "Filename: {0}/{1}\n".format(os.path.relpath(origdir, os.path.dirname(os.path.realpath(origdir))), os.path.basename(deb))
+			Size = "Size: {0}".format(os.path.getsize(deb))
 
-			self.STRING = "{0}{1}{2}{3}{4}\n\n".format(control, MD5sum, SHA1, SHA256, Filename)
+			self.STRING = "{0}{1}{2}{3}{4}{5}\n\n".format(control, MD5sum, SHA1, SHA256, Filename, Size)
 			
 	@click.command()
 	@click.option('-bz', default=1, help='Bzip the Packages file')
@@ -111,7 +112,7 @@ class scanpkg:
 		with open("./Packages", "w+") as f:
 			f.write(PACKAGE_STRING)
 
-		subprocess.call(["bzip2", "-zk", "./Packages"])
+		subprocess.call(["gzip", "./Packages"])
 
 
 
