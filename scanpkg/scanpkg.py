@@ -3,7 +3,7 @@
 # @Author: Mustafa
 # @Date:   2015-07-09 23:52:55
 # @Last Modified by:   Mustafa
-# @Last Modified time: 2015-07-30 02:27:09
+# @Last Modified time: 2015-07-30 03:20:33
 
 # Exceptions
 class scanpkgControlException(Exception):
@@ -59,9 +59,6 @@ class scanpkg:
 		VERBOSITY = -1
 		if v:
 			VERBOSITY = 1
-
-		if not os.path.isdir(o):
-			raise scanpkgDirNotFound("Output directory not found")
 
 		if os.path.isdir(TEMP_DIR):
 			shutil.rmtree(TEMP_DIR, ignore_errors=True)
